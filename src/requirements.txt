@@ -1,0 +1,7 @@
+anthropic>=0.40
+python-dotenv
+pandas
+pyyaml
+jinja2
+pydantic>=2
+pytest

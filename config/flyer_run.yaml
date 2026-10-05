@@ -1,0 +1,4 @@
+# Parameters for this week's flyer run.
+flyer_period:
+  start: 2026-10-01   # Thursday
+  end: 2026-10-07     # Wednesday

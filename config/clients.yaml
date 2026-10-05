@@ -1,0 +1,30 @@
+# Client style rules for the promo copy generator.
+# Both clients are fictional.
+
+northmart:
+  display_name: NorthMart
+  region: ON
+  languages: [en, fr]
+  primary_language: en
+  tone: "energetic, family-friendly"
+  headline:
+    max_chars: 32          # applies to every language
+    case: upper            # headlines are printed in ALL CAPS
+  brand_casing: official   # brand names must appear exactly as in brands.csv
+  forbidden_words: [cheapest, best, guaranteed]
+  must_show_savings: true  # every item must show how much the customer saves
+  weight_pricing: lb_and_kg
+
+boreal:
+  display_name: Marché Boréal
+  region: QC
+  languages: [fr, en]
+  primary_language: fr
+  tone: "warm, local, understated"
+  headline:
+    max_chars: 40
+    case: sentence
+  brand_casing: official
+  forbidden_words: [cheap, "pas cher"]
+  must_show_savings: false
+  weight_pricing: kg_first
