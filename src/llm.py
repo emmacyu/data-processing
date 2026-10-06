@@ -1,5 +1,5 @@
 import os
-
+from .schema import PromoItem
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -50,6 +50,24 @@ class LLM:
             **kwargs
         )
         return next((b.text for b in response.content if b.type == "text"), "")
+
+
+    def structured_call(self, messages, output_format=None, **kwargs):
+        """
+        Calls the Claude API using a list of message dicts (e.g., [{"role": "user", "content": "..."}]).
+        """
+        if not self.client:
+            return f"[Mocked CALL response - anthropic not installed] messages_count={len(messages)}"
+
+        response = self.client.messages.parse(
+            model=kwargs.pop("model", DEFAULT_MODEL),
+            max_tokens=kwargs.pop("max_tokens", DEFAULT_MAX_TOKENS),
+            messages=messages,
+            output_format=output_format,
+            **kwargs
+        )
+
+        return response.parsed_output
 
 
     def structured_chat(self, prompt, schema, tool_name="extract_data", **kwargs):
